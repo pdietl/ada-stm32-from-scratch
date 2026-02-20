@@ -1,0 +1,9 @@
+project Blinky is
+   for Source_Dirs use (".");
+   for Object_Dir use ".";
+   for Main use ("main.adb");
+
+   package Pretty_Printer is
+      for Default_Switches ("Ada") use ("--syntax-only");
+   end Pretty_Printer;
+end Blinky;

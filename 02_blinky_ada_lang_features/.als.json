@@ -1,0 +1,8 @@
+{
+  "useGnatformat": false,
+  "defaultCharset": "UTF-8",
+  "enableIndexing": true,
+  "onTypeFormatting": {
+    "indentOnly": true
+  }
+}

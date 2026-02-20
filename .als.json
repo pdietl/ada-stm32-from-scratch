@@ -1,0 +1,9 @@
+{
+  "projectFile": "02_blinky_ada_lang_features/blinky.gpr",
+  "useGnatformat": false,
+  "defaultCharset": "UTF-8",
+  "enableIndexing": true,
+  "onTypeFormatting": {
+    "indentOnly": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/home/pdietl/.local/share/nvim/mason/packages/ada-language-server/integration/vscode/ada/x64/linux/ada_language_server:*)",
+      "Bash(compgen:*)",
+      "Bash(nvim:*)",
+      "Bash(echo:*)",
+      "Bash(/home/pdietl/.alire/bin/gnatpp:*)",
+      "Bash(export PATH=\"$HOME/.alire/bin:$PATH\")",
+      "Bash(gnatpp:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(ls:*)"
+    ]
+  },
+  "outputStyle": "Learning"
+}
