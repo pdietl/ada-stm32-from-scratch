@@ -1,0 +1,8 @@
+# Build artifacts
+build/
+*.o
+*.ali
+*.elf
+
+# Claude Code local settings
+.claude/settings.local.json

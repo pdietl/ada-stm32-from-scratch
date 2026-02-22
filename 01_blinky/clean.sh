@@ -2,4 +2,4 @@
 
 set -eux
 
-rm -vf *.o *.ali *.elf
+rm -rf build
