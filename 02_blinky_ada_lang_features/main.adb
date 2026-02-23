@@ -9,7 +9,6 @@ procedure Main is
 
    RCC_AHB2ENR : Interfaces.Unsigned_32 with
      Volatile, Address => System'To_Address (16#5800_004C#);
-
    procedure Crude_Delay is
       Counter : Interfaces.Unsigned_32 := 0 with
         Volatile;
@@ -27,17 +26,17 @@ begin
 
    loop
       GPIOB.BSRR :=
-        (BR_15 => true, BR_11 => true, BS_9 => true, others => false);
+        (BR_15 => True, BR_11 => True, BS_9 => True, others => False);
 
       Crude_Delay;
 
       GPIOB.BSRR :=
-        (BR_15 => true, BS_11 => true, BR_9 => true, others => false);
+        (BR_15 => True, BS_11 => True, BR_9 => True, others => False);
 
       Crude_Delay;
 
       GPIOB.BSRR :=
-        (BS_15 => true, BR_11 => true, BR_9 => true, others => false);
+        (BS_15 => True, BR_11 => True, BR_9 => True, others => False);
 
       Crude_Delay;
    end loop;
