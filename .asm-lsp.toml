@@ -1,0 +1,9 @@
+[default_config]
+assembler = "gas"
+instruction_set = "arm"
+
+[default_config.opts]
+compiler = "arm-eabi-gcc"
+compile_flags_txt = ["-x", "assembler-with-cpp", "-mcpu=cortex-m4", "-mthumb"]
+diagnostics = true
+default_diagnostics = true
