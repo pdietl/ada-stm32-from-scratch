@@ -18,7 +18,7 @@ TARGET        := blink.elf
 
 all: $(TARGET)
 
-$(TARGET): crt0.o main.o $(LINKER_SCRIPT)
+$(TARGET): crt0.o main.o systick_handler.o $(LINKER_SCRIPT)
 	$(LD) -T $(filter %.ld,$^) -nostdlib $(filter %.o,$^) -o $@
 
 # GNAT produces both a .o and .ali from a single compilation.
@@ -45,7 +45,13 @@ stm32wl-gpio.o stm32wl-gpio.ali &: stm32wl-gpio.ads stm32wl.ali system.ali inter
 stm32wl-rcc.o stm32wl-rcc.ali &: stm32wl-rcc.ads stm32wl.ali system.ali interfac.ali
 	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
 
-main.o main.ali &: main.adb system.ali interfac.ali stm32wl-gpio.ali stm32wl-rcc.ali
+stm32wl-syst.o stm32wl-syst.ali &: stm32wl-syst.ads stm32wl.ali system.ali
+	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
+
+systick_handler.o systick_handler.ali &: systick_handler.adb systick_handler.ads stm32wl-gpio.ali
+	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
+
+main.o main.ali &: main.adb system.ali stm32wl-gpio.ali stm32wl-rcc.ali stm32wl-syst.ali systick_handler.ali
 	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
 
 # Assembly startup code

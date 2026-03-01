@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo:*)",
+      "Bash(xclip:*)",
+      "Bash(make:*)"
+    ]
+  },
+  "outputStyle": "Learning"
+}
