@@ -42,7 +42,10 @@ stm32wl.o stm32wl.ali &: stm32wl.ads system.ali
 stm32wl-gpio.o stm32wl-gpio.ali &: stm32wl-gpio.ads stm32wl.ali system.ali interfac.ali
 	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
 
-main.o main.ali &: main.adb system.ali interfac.ali stm32wl-gpio.ali
+stm32wl-rcc.o stm32wl-rcc.ali &: stm32wl-rcc.ads stm32wl.ali system.ali interfac.ali
+	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
+
+main.o main.ali &: main.adb system.ali interfac.ali stm32wl-gpio.ali stm32wl-rcc.ali
 	$(CC) -c $(APP_FLAGS) $< -o $(basename $@).o
 
 # Assembly startup code

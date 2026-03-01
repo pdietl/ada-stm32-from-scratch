@@ -1,14 +1,12 @@
-with System;
 with Interfaces;
 with STM32WL.GPIO;
+with STM32WL.RCC;
 
 use type Interfaces.Unsigned_32;
 use STM32WL.GPIO;
+use STM32WL.RCC;
 
 procedure Main is
-
-   RCC_AHB2ENR : Interfaces.Unsigned_32 with
-     Volatile, Address => System'To_Address (16#5800_004C#);
 
    procedure Crude_Delay is
       Counter : Interfaces.Unsigned_32 := 0 with
@@ -21,7 +19,7 @@ procedure Main is
 
 begin
    -- Enable GPIOB peripheral clock.
-   RCC_AHB2ENR := @ or 16#0000_0002#;
+   RCC.AHB2ENR := (GPIOBEN => True, others => False);
 
    GPIOB.MODER.Pin_9 := Output;
 
