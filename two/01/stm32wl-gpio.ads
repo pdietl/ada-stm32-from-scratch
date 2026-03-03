@@ -3,9 +3,9 @@ with Interfaces;
 
 use type Interfaces.Unsigned_32;
 
-package STM32WL.GPIO is
-   pragma Preelaborate;
-
+package STM32WL.GPIO with
+  Preelaborate
+is
    type Pin_Mode is (Input, Output, Alternate, Analog) with
      Size => 2;
 
@@ -135,7 +135,7 @@ package STM32WL.GPIO is
       AFRH    : Interfaces.Unsigned_32;
       BRR     : Interfaces.Unsigned_32;
    end record with
-     Size => 11 * 32;
+     Size => 11 * 32, Alignment => 4, Volatile;
 
    for GPIO_Peripheral use record
       MODER   at 16#00# range 0 .. 31;
@@ -152,6 +152,6 @@ package STM32WL.GPIO is
    end record;
 
    GPIOB : GPIO_Peripheral with
-     Volatile, Import, Address => System'To_Address (16#4800_0400#);
+     Import, Address => System'To_Address (16#4800_0400#);
 
 end STM32WL.GPIO;

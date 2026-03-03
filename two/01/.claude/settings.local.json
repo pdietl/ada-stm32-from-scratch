@@ -3,7 +3,19 @@
     "allow": [
       "Bash(echo:*)",
       "Bash(xclip:*)",
-      "Bash(make:*)"
+      "Bash(make:*)",
+      "Bash(gprbuild:*)",
+      "Bash(export:*)",
+      "WebSearch",
+      "WebFetch(domain:wiki.osdev.org)",
+      "WebFetch(domain:docs.adacore.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:osdev.miraheze.org)",
+      "WebFetch(domain:blog.adacore.com)",
+      "WebFetch(domain:comp.lang.ada.narkive.com)",
+      "WebFetch(domain:www.adacore.com)",
+      "Bash(ls:*)",
+      "Bash(wc:*)"
     ]
   },
   "outputStyle": "Learning"

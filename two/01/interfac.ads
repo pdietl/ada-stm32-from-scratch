@@ -10,12 +10,4 @@ package Interfaces is
    type Unsigned_32 is mod 2**32 with
      Size => 32;
 
-   function "not" (Value : Unsigned_32) return Unsigned_32 with
-     Import, Convention => Intrinsic;
-
-   function "and" (Left, Right : Unsigned_32) return Unsigned_32 with
-     Import, Convention => Intrinsic;
-
-   function "or" (Left, Right : Unsigned_32) return Unsigned_32 with
-     Import, Convention => Intrinsic;
 end Interfaces;

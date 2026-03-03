@@ -3,9 +3,9 @@ with Interfaces;
 
 use type Interfaces.Unsigned_32;
 
-package STM32WL.RCC is
-   pragma Preelaborate;
-
+package STM32WL.RCC with
+  Preelaborate
+is
    type AHB2ENR_Register is record
       GPIOAEN : Boolean;
       GPIOBEN : Boolean;
@@ -69,7 +69,7 @@ package STM32WL.RCC is
       C2APB2SMENR  : Interfaces.Unsigned_32;
       C2APB3SMENR  : Interfaces.Unsigned_32;
    end record with
-     Size => 16#188# * 8;
+     Size => 16#188# * 8, Alignment => 4, Volatile;
 
    for RCC_Peripheral use record
       CR           at 16#000# range 0 .. 31;
@@ -131,6 +131,6 @@ package STM32WL.RCC is
    end record;
 
    RCC : RCC_Peripheral with
-     Volatile, Import, Address => System'To_Address (16#5800_0000#);
+     Import, Address => System'To_Address (16#5800_0000#);
 
 end STM32WL.RCC;
