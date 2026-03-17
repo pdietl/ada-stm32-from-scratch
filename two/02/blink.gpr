@@ -1,0 +1,18 @@
+with "rts/runtime.gpr";
+
+project Blink is 
+   for Target use "arm-elf";
+   for Runtime ("Ada") use "";
+   for Main use ("main.adb");
+   for Source_Dirs use ("src");
+   for Object_Dir use "build";
+   for Languages use ("Ada", "Asm_Cpp");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-mcpu=cortex-m4", "-mthumb", "-gnatp", "-gnat2022", "-gnatk255", "-nostdinc");
+   end Compiler;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-T", "src/linker.ld", "-nostdlib");
+   end Linker;
+end Blink;

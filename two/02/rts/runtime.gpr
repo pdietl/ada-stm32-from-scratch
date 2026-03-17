@@ -1,0 +1,12 @@
+project Runtime is
+   for Target use "arm-elf";
+   for Languages use ("Ada");
+   for Source_Dirs use (".");
+   for Object_Dir use "../build/rts";
+   for Runtime ("Ada") use "";
+
+   package Compiler is
+      for Default_Switches ("Ada") use
+         ("-mcpu=cortex-m4", "-mthumb", "-gnatg", "-gnatk255", "-nostdinc");
+   end Compiler;
+end Runtime;
